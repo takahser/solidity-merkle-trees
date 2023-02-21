@@ -11,6 +11,7 @@ use ckb_merkle_mountain_range::{
     Error, Merge, MMR,
 };
 use ethers::{abi::Token, types::U256, utils::keccak256};
+use ethers::core::rand;
 use hex_literal::hex;
 use rs_merkle::{Hasher, MerkleTree};
 
@@ -447,4 +448,18 @@ fn test_merkle_mountain_range() {
     );
 
     assert_eq!(root.to_vec(), mmr.get_root().unwrap().0);
+}
+
+#[test]
+fn multi_proofs_vs_single_proofs() {
+    let leaves = (0..1000).into_iter().map(|_| rand::random::<[u8; 32]>()).collect::<Vec<_>>();
+    let tree = MerkleTree::<Keccak256>::from_leaves(&leaves);
+    let indices = (0..667).into_iter().map(|d| d).collect::<Vec<_>>();
+
+    let proof = tree.proof_2d(&indices).into_iter().flatten().collect::<Vec<_>>();
+    let single = tree.proof(&[1]).proof_hashes_hex();
+
+    println!("log2 = {}", single.len());
+    println!("number of hashes in a multiproof of 667/1000 = {}", proof.len() + 667); // add the leaves too
+    println!("number of hashes in a single proof of 667/100 = {}", (single.len() * 667) + 667) // add the leaves too
 }

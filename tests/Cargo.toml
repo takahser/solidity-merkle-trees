@@ -17,3 +17,6 @@ hex-literal = "0.3.4"
 rs_merkle = { git = "https://github.com/polytope-labs/rs-merkle", branch = "seun/2d-merkle-proofs" }
 hex = "0.4.3"
 ckb-merkle-mountain-range = { git = "https://github.com/polytope-labs/merkle-mountain-range", branch = "seun/simplified-mmr" }
+
+[dev-dependencies]
+random = "0.13.2"

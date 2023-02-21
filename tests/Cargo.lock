@@ -2899,6 +2899,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "random"
+version = "0.13.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "474c42c904f04dfe2a595a02f71e1a0e5e92ffb5761cc9a4c02140b93b8dd504"
+
+[[package]]
 name = "rayon"
 version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3506,6 +3512,7 @@ dependencies = [
  "hex",
  "hex-literal",
  "once_cell",
+ "random",
  "rs_merkle",
 ]
 
