@@ -4,8 +4,11 @@ import "./Node.sol";
 
 // SPDX-License-Identifier: Apache2
 
+// todo: interface doc
 interface ITrieDB {
+    // decode the NodeKind given an encoded node
     function decodeNodeKind(bytes memory encoded) external pure returns (NodeKind memory);
+    // decode the NibbledBranch given a nodeKind
     function decodeNibbledBranch(NodeKind memory node) external pure returns (NibbledBranch memory);
     function decodeExtension(NodeKind memory node) external pure returns (Extension memory);
     function decodeBranch(NodeKind memory node) external pure returns (Branch memory);

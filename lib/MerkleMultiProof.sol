@@ -7,6 +7,8 @@ struct Node {
 }
 
 library MerkleMultiProof {
+    // todo: 
+    // will confirm that the root hash matches
     function verifyProof(bytes32 root, Node[][] memory proof, Node[] memory leaves)
         public
         pure
@@ -15,6 +17,8 @@ library MerkleMultiProof {
         return root == calculateRoot(proof, leaves);
     }
 
+    // todo: 
+    // returns the root hash
     function calculateRoot(Node[][] memory proof, Node[] memory leaves)
         public
         pure

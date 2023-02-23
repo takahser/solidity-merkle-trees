@@ -11,6 +11,8 @@ struct MmrLeaf {
 }
 
 library MerkleMountainRange {
+    // todo: 
+    // verifies some leaves in the mmr.
     function verifyProof(
         bytes32 root,
         bytes32[] memory proof,
@@ -20,6 +22,8 @@ library MerkleMountainRange {
         return root == calculateRoot(proof, leaves, mmrSize);
     }
 
+    // todo: 
+    // verifies some leaves in the mmr
     function calculateRoot(
         bytes32[] memory proof,
         MmrLeaf[] memory leaves,

@@ -11,6 +11,8 @@ library MerklePatricia {
      // so we don't explore deeply nested trie keys.
      uint256 internal constant MAX_TRIE_DEPTH = 50;
 
+     // todo:
+     // checks that some keys exist in the trie.
      function VerifyKeys(bytes32 root, TrieDB trieDb, bytes[] memory keys)
      public
      returns (bytes[] memory)
@@ -89,6 +91,7 @@ library MerklePatricia {
           return values;
      }
 
+     // todo:
      // substrate specific method in order to verify keys in the child trie.
      function ReadChildProofCheck(bytes32 root, TrieDB trieDB, bytes memory childInfo, bytes[] memory keys)
      public
