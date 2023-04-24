@@ -6,7 +6,7 @@ library Memory {
 
     uint internal constant WORD_SIZE = 32;
 
-	// Compares the 'len' bytes starting at address 'addr' in memory with the 'len'
+    // Compares the 'len' bytes starting at address 'addr' in memory with the 'len'
     // bytes starting at 'addr2'.
     // Returns 'true' if the bytes are the same, otherwise 'false'.
     function equals(uint addr, uint addr2, uint len) internal pure returns (bool equal) {
